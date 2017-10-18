@@ -12,6 +12,11 @@ if (chickenName === '' || chickenName === null) { //abort if canceled or empty
 // end name question
 ///////////////////////
 
+
+/*******************/
+/**Debuging Value***/
+keepGoing = false;
+
 //////////////////////////////////
 // begin main odd request question
 console.log('chickenName keepGoing: ', keepGoing);
@@ -171,3 +176,67 @@ if (keepGoing === true) {
 }
 //end baseball question
 ///////////////////////
+
+/********************/
+/***Debuging Value***/
+keepGoing = true;
+
+////////////////////////////////
+//begin number guessing question
+console.log('numGuess keepGoing: ', keepGoing);
+if (keepGoing === true) {
+  var numGuessInt;
+  var chickens = 397621;
+  var chickenGuessCounter = 1;
+  var numOfGuesses = 4;
+
+  ///////////////////////////
+  //while loop to keep asking
+  while(numGuessInt != chickens) {
+    //ask the question
+    var numGuess = prompt('I\'m dreaming about chasing chickens.  How many are there?');
+    console.log('numGuess string: ', numGuess);
+
+    //if there was an empty string or cancel was hit, then quit the game
+    if(numGuess === '' || numGuess === null){
+      alert('fine don\'t play...');
+      numGuessInt = chickens;
+      keepGoing = false;
+    } else {
+      //coherce numGuess to number
+      numGuessInt = parseInt(numGuess) ;
+      console.log('numGuessInt: ', numGuessInt);
+      //check to see if numGuessInt is a number, if not then alert the user it is not a number
+      if (! isNaN(numGuessInt)) {
+        if (numGuessInt < chickens) {
+          alert('That number is too low.  It was a big dream');
+          chickenGuessCounter++;
+        } else if (numGuessInt > chickens) {
+          alert('The number is too high.  That sounds like a nightmare!');
+          chickenGuessCounter++;
+        }
+      } else {
+        alert('That wasn\'t a number. Try again');
+        chickenGuessCounter++;
+      }
+      console.log('guess number ', chickenGuessCounter);
+      if (chickenGuessCounter > numOfGuesses) {
+        console.log('no more guesses');
+        numGuessInt = chickens;
+      }
+    }
+  }
+  //end while loop
+  /////////////////
+
+  /*if the guess was made within the allotted amount of guesses and they user didn't hit 'cancel' then
+  tell them they were correct */
+  if (chickenGuessCounter <= numOfGuesses && keepGoing === true) {
+    alert('Bingo! And I ain\'t talking about my dog!\n\nThere were exactly ' + chickens + ' chickens in my dream.' );
+  } else if(keepGoing === true) {//let the user know they ran out of guesses
+    alert('You obviously are not a good chicken counter.  The correct answer is ' + chickens + ' chickens.');
+  }
+}
+
+//end number guessing question
+////////////////////////////////
