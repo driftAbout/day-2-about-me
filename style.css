@@ -1,9 +1,8 @@
 body {
-  background: radial-gradient(#888, #000),  url("KMP_010115_4257A.jpg");
+  background: radial-gradient(#888, #000), url("KMP_010115_4257A.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-blend-mode: screen;
-
 }
 
 header {
@@ -47,12 +46,16 @@ header p {
 }
 
 section h2 {
-
+  margin-bottom: 0;
   color: #222;
+}
 
+section p {
+  margin: 0 15px;
 }
 
 section h2 + p {
+  margin:5px 5px;
   color: #999;
 }
 
