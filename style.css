@@ -34,6 +34,7 @@ header p {
   width: 960px;
   padding: 15px;
   border-radius: 3px;
+  box-shadow: #222 5px 5px 35px 1px;
 }
 
 #content section {
@@ -43,6 +44,7 @@ header p {
   margin-top: 0;
   padding: 15px;
   border-radius: 3px;
+  box-shadow: #333 1px 1px 3px 0px;
 }
 
 section h2 {
@@ -68,4 +70,31 @@ header section {
   margin: 0 auto;
   background: #000;
   opacity: .9;
+}
+
+header section p {
+  margin: 0;
+}
+
+.top-ten div {
+ margin:0 auto;
+}
+
+.top_ten ol {
+  width: 800px;
+  box-shadow: #555 5px 5px 20px;
+  padding: 15px 15px 10px 15px;
+  margin:20px auto;
+  border-radius:5px;
+  font-size: 18px;
+  column-count:2;
+}
+
+.top_ten ol li {
+  margin-left:15px;
+}
+
+.top_ten ol li:nth-child(odd){
+  background :#6c6c6c;
+  border-radius:3px;
 }
