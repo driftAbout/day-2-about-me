@@ -1,4 +1,9 @@
 'use strict';
+
+//create a counter for the number of correct answers
+var correctAnswers = 0;
+var addQuestion = 0;
+
 ///////////////////////
 // begin name question
 
@@ -20,11 +25,13 @@ if (chickenName === '' || chickenName === null) { //abort if canceled or empty
 /*******************/
 /**Debuging Value***/
 var keepGoing = false;
+var chickenName = 'Rex Goliath';
+
 
 //////////////////////////////////
 // begin main odd request question
 console.log('chickenName keepGoing: ', keepGoing);
-if (keepGoing === true){
+if (keepGoing){
   var huh = prompt('Did you find that to be an odd request, ' + chickenName + ' ?  Yes or No ( Y/N )');
   console.log('huh: ', huh);
 
@@ -34,7 +41,7 @@ if (keepGoing === true){
   }
 
   console.log('huh keepGoing: ', keepGoing);
-  if (keepGoing === true){
+  if (keepGoing){
     if (huh.toLowerCase() === 'yes' || huh.toLowerCase() === 'y'){ //huh is not yes and not y
 
       //////////////////////////////////
@@ -57,7 +64,7 @@ if (keepGoing === true){
 
 /////////////////////////
 //begin graced question
-if (keepGoing === true) {
+if (keepGoing) {
   var graced = prompt('Have you ever graced the presence of a professional, free range, chicken catcher?\n\nYes or No ( Y/N )');
   console.log('graced: ', graced);
 
@@ -67,7 +74,7 @@ if (keepGoing === true) {
   }
 
   console.log('graced keepGoing: ', keepGoing);
-  if (keepGoing === true){
+  if (keepGoing){
     if ( graced.toLowerCase() === 'yes' || graced.toLowerCase() === 'y') {
       alert('Well, I\'ll be the son of my sisters brother!  We must be cousins!');
     } else {
@@ -80,7 +87,7 @@ if (keepGoing === true) {
 
 ///////////////////////
 //begin zigZag question
-if (keepGoing === true){
+if (keepGoing){
   var zigZag = prompt('When describing the running style of the Gallus gallus domesticus, a subspecies of the red junglefowl, which came first, the zig or the zag?');
   console.log('zigZag: ', zigZag);
 
@@ -90,7 +97,7 @@ if (keepGoing === true){
   }
 
   console.log('gzigZag keepGoing: ', keepGoing);
-  if (keepGoing === true){
+  if (keepGoing){
     if( zigZag.toLowerCase() === 'zig' || zigZag.toLowerCase() === 'zag' ){
       alert('Trick Question!  They don\'t run from me they get catch-ed');
     } else {
@@ -112,7 +119,7 @@ if (keepGoing === true){
 ///////////////////////
 //begin catch count question
 console.log('keepGoing: ', keepGoing);
-if (keepGoing === true) {
+if (keepGoing) {
   var catchCount = prompt('How many chickens do you think I can catch in an hour?');
   console.log('catchCount: ', catchCount);
 
@@ -122,6 +129,8 @@ if (keepGoing === true) {
   }
   console.log('catchCount keepGoing: ', keepGoing);
   if (keepGoing === true) {
+    //add this question to the count of questions
+    addQuestion++;
     var myCatch = 247;
     if (parseInt(catchCount) < myCatch || parseInt(catchCount) > myCatch){
       var onlyCatch = '';
@@ -131,6 +140,7 @@ if (keepGoing === true) {
       alert('Really?  You don\'t know nut\'in \'bout me!. I can ' + onlyCatch + 'catch ' + myCatch + ' chickens in an hour');
     } else {
       alert('Hot Damn! Hit my face with hammer!  I can catch exactly ' + myCatch + ' chickens');
+      correctAnswers++;
     }
   }
 }
@@ -140,7 +150,7 @@ if (keepGoing === true) {
 ///////////////////////////////
 //begin cross the road question
 console.log('keepGoing: ', keepGoing);
-if (keepGoing === true) {
+if (keepGoing) {
   var road = prompt('Why did the Urban Farmers Chicken Search and Rescue Team member cross the road?');
   console.log('road: ', road);
 
@@ -149,7 +159,7 @@ if (keepGoing === true) {
     keepGoing = false;
   }
   console.log('road keepGoing: ', keepGoing);
-  if (keepGoing === true) {
+  if (keepGoing) {
     alert('"' + road + '" was a good guess. But the reall answer is because the headless zombie chicken was in pursuit.  Those things run fast with out a head!');
   }
 }
@@ -159,7 +169,7 @@ if (keepGoing === true) {
 /////////////////////////
 //begin baseball question
 console.log('baseball: ', keepGoing);
-if (keepGoing === true) {
+if (keepGoing) {
   var baseball = prompt('One last question.  Do you like baseball?  Yes or No ( Y/N )');
   console.log('baseball: ', baseball);
   if(baseball === '' || baseball === null){
@@ -184,7 +194,9 @@ if (keepGoing === true) {
 ////////////////////////////////
 //begin number guessing question
 console.log('numGuess keepGoing: ', keepGoing);
-if (keepGoing === true) {
+if (keepGoing) {
+  //add this question to the count of questions
+  addQuestion++;
   var numGuessInt;
   var chickens = 397621;
   var chickenGuessCounter = 1;
@@ -201,8 +213,11 @@ if (keepGoing === true) {
     if(numGuess === '' || numGuess === null){
       alert('fine don\'t play...');
       numGuessInt = chickens;
+      //remove this question to the count of questions
+      addQuestion--;
       keepGoing = false;
     } else {
+
       //coherce numGuess to number
       numGuessInt = parseInt(numGuess) ;
       console.log('numGuessInt: ', numGuessInt);
@@ -231,9 +246,10 @@ if (keepGoing === true) {
 
   /*if the guess was made within the allotted amount of guesses and they user didn't hit 'cancel' then
   tell them they were correct */
-  if (chickenGuessCounter <= numOfGuesses && keepGoing === true) {
+  if (chickenGuessCounter <= numOfGuesses && keepGoing) {
     alert('Bingo! And I ain\'t talking about my dog!\n\nThere were exactly ' + chickens + ' chickens in my dream.' );
-  } else if(keepGoing === true) {//let the user know they ran out of guesses
+    correctAnswers++;
+  } else if(keepGoing) {//let the user know they ran out of guesses
     alert('You obviously are not a good chicken counter.  The correct answer is ' + chickens + ' chickens.');
   }
 }
@@ -248,7 +264,9 @@ keepGoing = true;
 ////////////////////////////////
 //begin guessing game
 console.log('favorite guess keepGoing: ', keepGoing);
-if (keepGoing === true) {
+if (keepGoing) {
+  //add this question to the count of questions
+  addQuestion++;
   var numBreedGuesses = 6;
   var guessTry = 1;
   var correctGuess = false;
@@ -265,6 +283,8 @@ if (keepGoing === true) {
     //if there was an empty string or cancel was hit, then quit the game
     if(breedGuess === '' || breedGuess === null){
       alert('I see you are not a chicken lover...\n\nGoodbye...');
+      //remove this question to the count of questions
+      addQuestion--;
       keepGoing = false;
       exitGame = true;
     }
@@ -300,10 +320,28 @@ if (keepGoing === true) {
 
   if(correctGuess && keepGoing){
     alert('You are correct!\n\n' + breedGuess + ' chickens are delicious!\n\nThese are all my favorites:\n\n\t' + favoriteBreed.join('\n\t'));
+    correctAnswers++;
   } else if (keepGoing) {
     alert('You are out of chances and obviously don\'t know me.\n\nThese are all my favorites:\n\n\t' + favoriteBreed.join('\n\t'));
   }
 }
-
 //end guessing game
 ///////////////////
+
+//Report the number of right answers
+if (keepGoing) {
+  var mesg;
+  var userGrade = correctAnswers / addQuestion;
+  switch(userGrade){
+  case 0:
+    mesg = 'you suck';
+    break;
+  case 100:
+    mesg = 'You must love me!';
+    break;
+  default:
+    mesg = '';
+  }
+  //display a messge to the user of how many answers they got right
+  alret('You got ' + correctAnswers + ' out of ' + addQuestion + 'questions right, ' + chickenName + '\n\n' + mesg);
+}
