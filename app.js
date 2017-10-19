@@ -1,6 +1,8 @@
 'use strict';
 ///////////////////////
 // begin name question
+
+/*
 var chickenName = prompt('If you were a chicken, what would I call you?');
 console.log('chickenName: ', chickenName);
 
@@ -13,9 +15,11 @@ if (chickenName === '' || chickenName === null) { //abort if canceled or empty
 ///////////////////////
 
 
+*/
+
 /*******************/
 /**Debuging Value***/
-keepGoing = false;
+var keepGoing = false;
 
 //////////////////////////////////
 // begin main odd request question
@@ -177,10 +181,6 @@ if (keepGoing === true) {
 //end baseball question
 ///////////////////////
 
-/********************/
-/***Debuging Value***/
-keepGoing = true;
-
 ////////////////////////////////
 //begin number guessing question
 console.log('numGuess keepGoing: ', keepGoing);
@@ -194,7 +194,7 @@ if (keepGoing === true) {
   //while loop to keep asking
   while(numGuessInt != chickens) {
     //ask the question
-    var numGuess = prompt('I\'m dreaming about chasing chickens.  How many are there?');
+    var numGuess = prompt('I\'m dreaming about chasing chickens.  How many are there?\n\nYou have ' + numOfGuesses + 'chances');
     console.log('numGuess string: ', numGuess);
 
     //if there was an empty string or cancel was hit, then quit the game
@@ -240,3 +240,70 @@ if (keepGoing === true) {
 
 //end number guessing question
 ////////////////////////////////
+
+/********************/
+/***Debuging Value***/
+keepGoing = true;
+
+////////////////////////////////
+//begin guessing game
+console.log('favorite guess keepGoing: ', keepGoing);
+if (keepGoing === true) {
+  var numBreedGuesses = 6;
+  var guessTry = 1;
+  var correctGuess = false;
+  var exitGame = false;
+  var favoriteBreed = ['Antwerp Belgian Bantam', 'White Faced Black Spanish', 'Sicilian Buttercup', 'New Hampshire Red', 'Lakenvelder', 'Appenzeller Spitzhauben', 'Rubber'];
+
+  ///////////////////
+  //begin while loop
+  //while(guessTry <= numBreedGuesses){
+  while(! exitGame){
+    var breedGuess = prompt('Love me some chickens! I have several favorite breeds.\n\n Can you guess one of my favorite breeds\n\nYou have ' + numBreedGuesses + ' chances');
+    console.log('breedGuess: ', breedGuess);
+
+    //if there was an empty string or cancel was hit, then quit the game
+    if(breedGuess === '' || breedGuess === null){
+      alert('I see you are not a chicken lover...\n\nGoodbye...');
+      keepGoing = false;
+      exitGame = true;
+    }
+    //if cancel button was not pressed, continue the game
+    if (! exitGame) {
+      //coherse the answer to lowercase and remove all spaces
+      var breedGuessLower = breedGuess.split(' ').join('').toLowerCase();
+      console.log('breedGuessLower: ', breedGuessLower);
+      //start for loop
+      for (var i = 0; i < favoriteBreed.length; i++){
+        //coherse the item at index to lowercase and remove all spaces
+        var favoriteBreedLower = favoriteBreed[i].split(' ').join('').toLowerCase();
+        console.log('favoriteBreed ' + i + ' ', favoriteBreed[i]);
+        console.log('favoriteBreedLower: ', favoriteBreedLower);
+        //compare the two lowercase strings
+        if (breedGuessLower === favoriteBreedLower) {
+          console.log('Correct guess!');
+          exitGame = true;
+          correctGuess = true;
+        }
+      }
+      //end for loop
+      /////////////
+      //incriment the guess counter and exit the game if it is greater than the allowed guesses
+      guessTry++;
+      if (guessTry > numBreedGuesses){
+        exitGame = true;
+      }
+    }
+  }
+  //end while loop
+  /////////////////
+
+  if(correctGuess && keepGoing){
+    alert('You are correct!\n\n' + breedGuess + ' chickens are delicious!\n\nThese are all my favorites:\n\n\t' + favoriteBreed.join('\n\t'));
+  } else if (keepGoing) {
+    alert('You are out of chances and obviously don\'t know me.\n\nThese are all my favorites:\n\n\t' + favoriteBreed.join('\n\t'));
+  }
+}
+
+//end guessing game
+///////////////////
