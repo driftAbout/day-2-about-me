@@ -22,7 +22,7 @@ if (chickenName === '' || chickenName === null) { //abort if canceled or empty
 
 /*******************/
 /**Debuging Value***/
-var keepGoing = false;
+//var keepGoing = false;
 // chickenName = 'Rex Goliath';
 
 
@@ -191,7 +191,7 @@ if (keepGoing) {
 
 /********************/
 /***Debuging Values***/
-keepGoing = true;
+//keepGoing = true;
 
 ////////////////////////////////
 //begin number guessing question
@@ -279,7 +279,6 @@ if (keepGoing) {
 
   ///////////////////
   //begin while loop
-  //while(guessTry <= numBreedGuesses){
   while(! exitGame){
     var breedGuess = prompt('Love me some chickens! I have several favorite breeds.\n\n Can you guess one of my favorite breeds\n\nYou have ' + numberGuessesLeft + ' chances');
     console.log('breedGuess: ', breedGuess);
@@ -335,21 +334,18 @@ if (keepGoing) {
 
 //Report the number of right answers
 if (keepGoing) {
-  var mesg;
+  var mesg = '';
   console.log('addQuestion: ', addQuestion);
   console.log('correctAnswers: ', correctAnswers);
   var userGrade = correctAnswers / addQuestion;
   console.log('userGrade: ', userGrade);
-  switch(userGrade){
-  case 0:
+
+  if(! userGrade){
     mesg = 'You Suck!';
-    break;
-  case 1:
+  } else if( userGrade === 1){
     mesg = 'You must love me!';
-    break;
-  default:
-    mesg = '';
   }
+
   console.log('final part of last message: ', mesg);
   //display a messge to the user of how many answers they got right
   alert('You got ' + correctAnswers + ' out of ' + addQuestion + ' questions right, ' + chickenName + '.\n\n' + mesg);
