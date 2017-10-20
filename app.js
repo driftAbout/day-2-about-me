@@ -2,36 +2,20 @@
 
 //create a counter for the number of correct answers
 var correctAnswers = 0;
+// counter for the total number of questions
 var addQuestion = 0;
+//counter to display remaining chances
 var numberGuessesLeft;
+//variable for result of prompt
 var chickenName;
+//flag to use to skip parts of the game if the user cancels
 var keepGoing = true;
-///////////////////////
-// begin name question
 
-/** var chickenName = prompt('If you were a chicken, what would I call you?');
-console.log('chickenName: ', chickenName);
+/*******************/
+/**Debuging Value***/
+//var keepGoing = false;
+//chickenName = 'Rex Goliath';
 
-var keepGoing = true;
-if (chickenName === '' || chickenName === null) { //abort if canceled or empty
-  alert('I\'m sorry if I offened you.  Namaste...');
-  keepGoing = false;
-}
-*/
-function questionOne () {
-
-  chickenName = prompt('If you were a chicken, what would I call you?');
-  console.log('chickenName: ', chickenName);
-
-
-  if (chickenName === '' || chickenName === null) { //abort if canceled or empty
-    alert('I\'m sorry if I offened you.  Namaste...');
-    keepGoing = false;
-  }
-}
-
-correctAnswers = 4;
-addQuestion = 5;
 questionOne();
 questionTwo();
 questionThree();
@@ -40,26 +24,25 @@ questionFive();
 questionSix();
 questionSeven();
 questionEight();
-questionNine();
+questionResults();
 
-
-
-
+///////////////////////
+// begin name question
+function questionOne() {
+  chickenName = prompt('If you were a chicken, what would I call you?');
+  console.log('chickenName: ', chickenName);
+  if (chickenName === '' || chickenName === null) { //abort if canceled or empty
+    alert('I\'m sorry if I offened you.  Namaste...');
+    keepGoing = false;
+  }
+}
 // end name question
 ///////////////////////
 
-
-/*******************/
-/**Debuging Value***/
-var keepGoing = false;
-chickenName = 'Rex Goliath';
-
-
 //////////////////////////////////
 // begin main odd request question
-
 function questionTwo() {
-console.log('chickenName keepGoing: ', keepGoing);
+  console.log('chickenName keepGoing: ', keepGoing);
   if (keepGoing){
     var huh = prompt('Did you find that to be an odd request, ' + chickenName + ' ?  Yes or No ( Y/N )');
     console.log('huh: ', huh);
@@ -94,7 +77,6 @@ console.log('chickenName keepGoing: ', keepGoing);
 
 /////////////////////////
 //begin graced question
-
 function questionThree() {
   if (keepGoing) {
     var graced = prompt('Have you ever graced the presence of a professional, free range, chicken catcher?\n\nYes or No ( Y/N )');
@@ -120,7 +102,6 @@ function questionThree() {
 
 ///////////////////////
 //begin zigZag question
-
 function questionFive() {
   console.log('keepGoing: ', keepGoing);
   if (keepGoing) {
@@ -154,7 +135,6 @@ function questionFive() {
 
 ///////////////////////////////
 //begin cross the road question
-
 function questionSix() {
   console.log('keepGoing: ', keepGoing);
   if (keepGoing) {
@@ -199,13 +179,8 @@ if (keepGoing) {
 //end baseball question
 ///////////////////////
 
-/********************/
-/***Debuging Values***/
-//keepGoing = true;
-
 ////////////////////////////////
 //begin number guessing question
-
 function questionSeven() {
   console.log('numGuess keepGoing: ', keepGoing);
   if (keepGoing) {
@@ -266,23 +241,14 @@ function questionSeven() {
     }
   }
 }
-
 //end while loop
 /////////////////
-
-/*if the guess was made within the allotted amount of guesses and they user didn't hit 'cancel' then
-  tell them they were correct */
 
 //end number guessing question
 ////////////////////////////////
 
-/********************/
-/***Debuging Values***/
-//keepGoing = true;
-
 ////////////////////////////////
 //begin guessing game
-
 function questionEight() {
   console.log('favorite guess keepGoing: ', keepGoing);
   if (keepGoing) {
@@ -353,7 +319,7 @@ function questionEight() {
 ///////////////////
 
 //Report the number of right answers
-function questionNine() {
+function questionResults() {
   if (keepGoing) {
     var mesg = '';
     console.log('addQuestion: ', addQuestion);
