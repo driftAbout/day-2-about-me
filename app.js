@@ -22,6 +22,7 @@ questionThree();
 questionFour();
 questionFive();
 questionSix();
+baseballQuestion();
 questionSeven();
 questionEight();
 questionResults();
@@ -102,6 +103,39 @@ function questionThree() {
 
 ///////////////////////
 //begin zigZag question
+function questionFour() {
+  if (keepGoing){
+    var zigZag = prompt('When describing the running style of the Gallus gallus domesticus, a subspecies of the red junglefowl, which came first, the zig or the zag?');
+    console.log('zigZag: ', zigZag);
+
+    if (zigZag === '' || zigZag === null){
+      alert('You must be rolling up that wacky tabaky in that zig zag!');
+      keepGoing = false;
+    }
+
+    console.log('gzigZag keepGoing: ', keepGoing);
+    if (keepGoing){
+      if( zigZag.toLowerCase() === 'zig' || zigZag.toLowerCase() === 'zag' ){
+        alert('Trick Question!  They don\'t run from me they get catch-ed');
+      } else {
+        ///////////////////////
+        //begin sub zigZag question
+        keepOnTrucking = prompt('You think like a chicken, ' + chickenName + ' and can\'t answer a Zig or Zag question, would you like to continue, anyway?\n\nYes or No ( Y/N )');
+        console.log('keepOnTrucking: ', keepOnTrucking);
+        if (!keepOnTrucking.toLowerCase() === 'yes' && !keepOnTrucking.toLowerCase() === 'y'){
+          keepGoing = false;
+        }
+        //end sub zigZag question
+        ///////////////////////
+      }
+    }
+  }
+}
+//end zigZag question
+///////////////////////
+
+////////////////////////////
+//begincatch count question
 function questionFive() {
   console.log('keepGoing: ', keepGoing);
   if (keepGoing) {
@@ -156,23 +190,25 @@ function questionSix() {
 
 /////////////////////////
 //begin baseball question
-console.log('baseball: ', keepGoing);
-if (keepGoing) {
-  var baseball = prompt('One last question.  Do you like baseball?  Yes or No ( Y/N )');
-  console.log('baseball: ', baseball);
-  if(baseball === '' || baseball === null){
-    alert('Oh, I guess one more question was too much');
-    keepGoing = false;
-  }
-  console.log('baseball keepGoing: ', keepGoing);
-  if (keepGoing === true) {
-    if (baseball.toLowerCase() === 'yes' || baseball.toLowerCase() === 'y'){
-      alert('Really???  You obviously never played with cousin Bertha.');
+function baseballQuestion() {
+  console.log('baseball: ', keepGoing);
+  if (keepGoing) {
+    var baseball = prompt('One last question.  Do you like baseball?  Yes or No ( Y/N )');
+    console.log('baseball: ', baseball);
+    if(baseball === '' || baseball === null){
+      alert('Oh, I guess one more question was too much');
+      keepGoing = false;
     }
-    else if (baseball.toLowerCase() === 'no' || baseball.toLowerCase() === 'n'){
-      alert('Me neither!  You must have played with cousin Bertha, too.');
-    } else {
-      alert('Yeah, I don\'t buy that....');
+    console.log('baseball keepGoing: ', keepGoing);
+    if (keepGoing === true) {
+      if (baseball.toLowerCase() === 'yes' || baseball.toLowerCase() === 'y'){
+        alert('Really???  You obviously never played with cousin Bertha.');
+      }
+      else if (baseball.toLowerCase() === 'no' || baseball.toLowerCase() === 'n'){
+        alert('Me neither!  You must have played with cousin Bertha, too.');
+      } else {
+        alert('Yeah, I don\'t buy that....');
+      }
     }
   }
 }
@@ -231,6 +267,9 @@ function questionSeven() {
         }
       }
     }
+    //end while loop
+    /////////////////
+
     /*if the guess was made within the allotted amount of guesses and they user didn't hit 'cancel' then
     tell them they were correct */
     if (chickenGuessCounter <= numOfGuesses && keepGoing) {
@@ -241,8 +280,7 @@ function questionSeven() {
     }
   }
 }
-//end while loop
-/////////////////
+
 
 //end number guessing question
 ////////////////////////////////
