@@ -120,7 +120,7 @@ function questionFour() {
       } else {
         ///////////////////////
         //begin sub zigZag question
-        keepOnTrucking = prompt('You think like a chicken, ' + chickenName + ' and can\'t answer a Zig or Zag question, would you like to continue, anyway?\n\nYes or No ( Y/N )');
+        var keepOnTrucking = prompt('You think like a chicken, ' + chickenName + ' and can\'t answer a Zig or Zag question, would you like to continue, anyway?\n\nYes or No ( Y/N )');
         console.log('keepOnTrucking: ', keepOnTrucking);
         if (!keepOnTrucking.toLowerCase() === 'yes' && !keepOnTrucking.toLowerCase() === 'y'){
           keepGoing = false;
