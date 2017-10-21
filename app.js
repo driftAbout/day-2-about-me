@@ -27,6 +27,17 @@ questionSeven();
 questionEight();
 questionResults();
 
+function askQuestion(theQuestion){
+  var answer = prompt(theQuestion);
+  if (answer === '' || answer === null) { //abort if canceled or empty
+  //  alert('I\'m sorry if I offened you.  Namaste...');
+    keepGoing = false;
+  }
+  return answer;
+
+}
+
+
 ///////////////////////
 // begin name question
 function questionOne() {
