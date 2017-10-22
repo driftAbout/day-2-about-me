@@ -1,9 +1,12 @@
 body {
-  background: radial-gradient(#888, #000), url("KMP_010115_4257A.jpg");
+  background: url("KMP_092216_8620.jpg");
+  background-color:#555;
   background-attachment: fixed;
   background-size: cover;
   background-blend-mode: screen;
   margin:0;
+  background-position: top;
+  height: 100vh;
 }
 
 /*
@@ -49,6 +52,7 @@ header p {
 
 main {
       margin-top: 160px;
+      margin-bottom: 60px;
 }
 
 #content {
@@ -71,6 +75,7 @@ main {
 }
 
 section h2 {
+  margin-top: 0;
   margin-bottom: 0;
   color: #222;
 }
@@ -80,7 +85,7 @@ section p {
 }
 
 section h2 + p {
-  margin:5px 5px;
+  margin:0px 15px 10px;
   color: #999;
 }
 
@@ -92,7 +97,6 @@ header section {
   width: 960px;
   margin: 0 auto;
   background: #000;
-  opacity: .9;
 }
 
 header section p{
@@ -153,4 +157,35 @@ header div{
   height:160px;
   margin-top: 20px;
   margin-left: 10px;
+}
+
+footer {
+  height: 40px;
+  position: fixed;
+  bottom: 0px;
+  width:98%;
+  left:1%;
+  background: #000;
+  border-top: 3px solid #777;
+  border-bottom: 3px solid #777;
+  border-radius: 3px;
+  color: #999;
+  font-size: 20px;
+  text-align: center;
+}
+
+footer p {
+  margin-top:10px;
+}
+
+
+footer img{
+  margin: 0 20px;
+  margin-top: 4px;
+  float: right;
+}
+
+footer img:first-child{
+  float: left;
+  transform: scale(-1,1);
 }
