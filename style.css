@@ -234,6 +234,7 @@ footer img:first-child{
 .note-text {
   width:240px;
   margin:0 20px;
+  color: #023663;
 }
 
 .note-text p{
@@ -243,4 +244,6 @@ footer img:first-child{
 }
 .note li {
   padding:5px;
+  list-style: none;
+
 }

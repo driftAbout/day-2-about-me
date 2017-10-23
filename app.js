@@ -57,17 +57,18 @@ function questionOne(question_number) {
 //////////////////////////////////
 // begin main odd request question
 function questionTwo(question_number) {
-  console.log('huh keepGoing: ', keepGoing);
-  var huh = askQuestion(question_number);
-
   if (keepGoing){
+    console.log('huh keepGoing: ', keepGoing);
+    var huh = askQuestion(question_number);
     if (huh.toLowerCase() === 'yes' || huh.toLowerCase() === 'y'){
       //////////////////////////////////
       // begin sub odd request question
-      askQuestion(2);
-      console.log('keepGoing: ', keepGoing);
+      if (keepGoing){
+        askQuestion(2);
+        console.log('keepGoing: ', keepGoing);
       // end sub odd request question
       ///////////////////////////////
+      }
     }
   }
 }
@@ -77,32 +78,37 @@ function questionTwo(question_number) {
 /////////////////////////
 //begin graced question
 function questionThree(question_number) {
-  console.log('graced keepGoing: ', keepGoing);
-  var graced = askQuestion(question_number);
   if (keepGoing){
-    if ( graced.toLowerCase() === 'yes' || graced.toLowerCase() === 'y') {
-      alert('Well, I\'ll be the son of my sisters brother!  We must be cousins!');
-    } else {
-      alert('You, aint from around here, ' + chickenName + '  are ya...');
+    console.log('graced keepGoing: ', keepGoing);
+    var graced = askQuestion(question_number);
+    if (keepGoing){
+      if ( graced.toLowerCase() === 'yes' || graced.toLowerCase() === 'y') {
+        alert('Well, I\'ll be the son of my sisters brother!  We must be cousins!');
+      } else {
+        alert('You, aint from around here, ' + chickenName + '  are ya...');
+      }
     }
   }
 }
+
 // end graced question
 //////////////////////
 
 ///////////////////////
 //begin zigZag question
 function questionFour(question_number) {
-  var zigZag = askQuestion(question_number);
   if (keepGoing){
-    if( zigZag.toLowerCase() === 'zig' || zigZag.toLowerCase() === 'zag' ){
-      alert('Trick Question!  They don\'t run from me they get catch-ed');
-    } else {
-      ///////////////////////
-      //begin sub zigZag question
-      askQuestion(5);
-      //end sub zigZag question
-      ///////////////////////
+    var zigZag = askQuestion(question_number);
+    if (keepGoing){
+      if( zigZag.toLowerCase() === 'zig' || zigZag.toLowerCase() === 'zag' ){
+        alert('Trick Question!  They don\'t run from me they get catch-ed');
+      } else {
+        ///////////////////////
+        //begin sub zigZag question
+        askQuestion(5);
+        //end sub zigZag question
+        ///////////////////////
+      }
     }
   }
 }
@@ -112,21 +118,23 @@ function questionFour(question_number) {
 ////////////////////////////
 //begincatch count question
 function questionFive(question_number) {
-  console.log('catchCount keepGoing: ', keepGoing);
-  var catchCount = askQuestion(question_number);
-  if (keepGoing) {
-    //add this question to the count of questions
-    addQuestion++;
-    var myCatch = 247;
-    if (parseInt(catchCount) < myCatch || parseInt(catchCount) > myCatch){
-      var onlyCatch = '';
-      if (parseInt(catchCount) > myCatch){
-        onlyCatch = 'only ';
+  if (keepGoing){
+    console.log('catchCount keepGoing: ', keepGoing);
+    var catchCount = askQuestion(question_number);
+    if (keepGoing) {
+      //add this question to the count of questions
+      addQuestion++;
+      var myCatch = 247;
+      if (parseInt(catchCount) < myCatch || parseInt(catchCount) > myCatch){
+        var onlyCatch = '';
+        if (parseInt(catchCount) > myCatch){
+          onlyCatch = 'only ';
+        }
+        alert('Really?  You don\'t know nut\'in \'bout me!. I can ' + onlyCatch + 'catch ' + myCatch + ' chickens in an hour');
+      } else {
+        alert('Hot Damn! Hit my face with hammer!  I can catch exactly ' + myCatch + ' chickens');
+        correctAnswers++;
       }
-      alert('Really?  You don\'t know nut\'in \'bout me!. I can ' + onlyCatch + 'catch ' + myCatch + ' chickens in an hour');
-    } else {
-      alert('Hot Damn! Hit my face with hammer!  I can catch exactly ' + myCatch + ' chickens');
-      correctAnswers++;
     }
   }
 }
@@ -136,9 +144,11 @@ function questionFive(question_number) {
 ///////////////////////////////
 //begin cross the road question
 function questionSix(question_number) {
-  var road = askQuestion(question_number);
   if (keepGoing) {
-    alert('"' + road + '" was a good guess. But the reall answer is because the headless zombie chicken was in pursuit.  Those things run fast with out a head!');
+    var road = askQuestion(question_number);
+    if (keepGoing) {
+      alert('"' + road + '" was a good guess. But the reall answer is because the headless zombie chicken was in pursuit.  Those things run fast with out a head!');
+    }
   }
 }
 //end cross the road question
@@ -147,16 +157,18 @@ function questionSix(question_number) {
 /////////////////////////
 //begin baseball question
 function baseballQuestion(question_number) {
-  var baseball = askQuestion(question_number);
-  console.log('baseball keepGoing: ', keepGoing);
-  if (keepGoing === true) {
-    if (baseball.toLowerCase() === 'yes' || baseball.toLowerCase() === 'y'){
-      alert('Really???  You obviously never played with cousin Bertha.');
-    }
-    else if (baseball.toLowerCase() === 'no' || baseball.toLowerCase() === 'n'){
-      alert('Me neither!  You must have played with cousin Bertha, too.');
-    } else {
-      alert('Yeah, I don\'t buy that....');
+  if (keepGoing) {
+    var baseball = askQuestion(question_number);
+    console.log('baseball keepGoing: ', keepGoing);
+    if (keepGoing === true) {
+      if (baseball.toLowerCase() === 'yes' || baseball.toLowerCase() === 'y'){
+        alert('Really???  You obviously never played with cousin Bertha.');
+      }
+      else if (baseball.toLowerCase() === 'no' || baseball.toLowerCase() === 'n'){
+        alert('Me neither!  You must have played with cousin Bertha, too.');
+      } else {
+        alert('Yeah, I don\'t buy that....');
+      }
     }
   }
 }
